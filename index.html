@@ -397,27 +397,26 @@
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: announceSlide 3s ease-out forwards, shine 1s linear infinite;
+            animation: announceSlide 6s ease-out forwards, shine 1s linear infinite;
         }
-
-        @keyframes announceSlide {
-            0% {
-                transform: translate(-50%, -50%) scale(0) rotate(-180deg);
-                opacity: 0;
-            }
-            30% {
-                transform: translate(-50%, -50%) scale(1.2) rotate(10deg);
-                opacity: 1;
-            }
-            70% {
-                transform: translate(-50%, -50%) scale(1) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
-                opacity: 0;
-            }
-        }
+@keyframes announceSlide {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    30% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+}
 
         .confetti {
             position: fixed;
@@ -1193,7 +1192,6 @@
         createConfetti();
         createMoneyRain();
         createFireworks();
-        showCelebration();
         playAchievementSound();
     }
     
@@ -1205,13 +1203,13 @@
 
         setTimeout(() => {
             announcement.remove();
-        }, 3000);
+        }, 6000);
     }
     
     function createConfetti() {
         const colors = ['#60a5fa', '#a78bfa', '#f472b6', '#fbbf24', '#34d399', '#f87171'];
         
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 25; i++) {
             setTimeout(() => {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
@@ -1227,13 +1225,13 @@
                 confetti.appendChild(piece);
                 document.body.appendChild(confetti);
                 
-                setTimeout(() => confetti.remove(), 4000);
+                setTimeout(() => confetti.remove(), 8000);
             }, i * 30);
         }
     }
     
     function createMoneyRain() {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 10; i++) {
             setTimeout(() => {
                 const money = document.createElement('div');
                 money.className = 'money';
@@ -1245,7 +1243,7 @@
                 
                 document.body.appendChild(money);
                 
-                setTimeout(() => money.remove(), 5000);
+                setTimeout(() => money.remove(), 10000);
             }, i * 100);
         }
     }
